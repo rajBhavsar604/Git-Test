@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="align-center">
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid class="ion-padding-github-img">
+    <ion-row class="align-center">
+      <img src="../../assets/images/GitHub-Logo.png">
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-input type="text" [(ngModel)]="username" class="input-field-css" placeholder="Enter Username">
+      </ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-button class="btn-color" (click)="repos()">Show Repositories</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

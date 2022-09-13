@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Repositories of {{username}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar animated placeholder="Search Repositories" (input)="search($event.target.value)"
+    class="searchbar-width"></ion-searchbar>
+  <ion-list *ngIf="repositories.length > 0">
+    <ion-card *ngFor="let repos of repositories; let i = index" class="shadow-all">
+      <ion-grid class="grid-padding">
+        <ion-row>
+          <ion-label class="bold">FullName: </ion-label>
+          <ion-label class="label-text-overflow description-text-overflow">{{repos.full_name}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="bold">Name: </ion-label>
+          <ion-label class="label-text-overflow">{{repos.name}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="bold">Description: </ion-label>
+          <ion-label class="label-text-overflow description-text-overflow">{{repos.description || 'No Description'}}
+          </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="bold">git_url: </ion-label>
+          <ion-label class="label-text-overflow">{{repos.git_url}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="bold">ViewCount: </ion-label>
+          <ion-label class="label-text-overflow description-text-overflow">{{repos.watchers_count}}
+          </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label class="bold">Open Issues: </ion-label>
+          <ion-label class="label-text-overflow description-text-overflow">{{repos.open_issues_count}}
+          </ion-label>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-list>
+  <ion-list *ngIf="repositories.length < 1">
+    <ion-card class="shadow-all">
+      <ion-grid class="grid-padding">
+        <ion-label>No Repos available!</ion-label>
+      </ion-grid>
+    </ion-card>
+  </ion-list>
+  <ion-row>
+    <ion-button class="btn-color" (click)="selectOtherUser()">Other User</ion-button>
+  </ion-row>
+</ion-content>

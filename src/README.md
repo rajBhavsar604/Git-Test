@@ -1,6 +1,3 @@
-# Git-Test
-Get all repositories of user
-
 node v ->14.15.3
 ionic v -> 6.6.0
 npm v -> 6.14.8
